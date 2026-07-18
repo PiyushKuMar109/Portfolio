@@ -5,13 +5,16 @@ import {
   Code, Layout, Server, Database, Settings, Cpu, UserCheck,
   Terminal, FileJson, Coffee, FileCode, Paintbrush, Atom, Laptop,
   Globe, Brain, Eye, Camera, MessageSquareCode, Bot, Sparkles,
-  GitBranch, Compass, Cloud, HardDrive, Send, Gauge, Zap
+  GitBranch, Compass, Cloud, HardDrive, Send, Gauge, Zap,
+  ChevronDown, ChevronUp
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [showMore, setShowMore] = useState(false);
+  const INITIAL_LIMIT = 8;
 
   const featuredMLSkills = [
     { name: "Python", level: 95, icon: Terminal, metric: "Primary Dev Language", color: "from-cyan-400 to-blue-600" },
@@ -34,40 +37,32 @@ export default function Skills() {
   ];
 
   const skillsData = [
-    // Languages
+    // Top Skills (Shown by default in 'all' category)
     { name: "Python", category: "languages", icon: Terminal, level: 95 },
-    { name: "JavaScript", category: "languages", icon: FileJson, level: 85 },
-    { name: "Java", category: "languages", icon: Coffee, level: 75 },
-    { name: "SQL", category: "languages", icon: Database, level: 80 },
-    { name: "C", category: "languages", icon: Code, level: 70 },
+    { name: "React.js", category: "frontend", icon: Atom, level: 85 },
+    { name: "Django REST Framework", category: "backend", icon: Server, level: 92 },
+    { name: "OpenCV", category: "ml_ai", icon: Camera, level: 90 },
+    { name: "YOLOv8", category: "ml_ai", icon: Eye, level: 88 },
+    { name: "Google Gemini API", category: "ml_ai", icon: Sparkles, level: 92 },
+    { name: "PostgreSQL", category: "databases", icon: Database, level: 85 },
+    { name: "Node.js", category: "backend", icon: Server, level: 80 },
 
-    // Frontend
+    // Additional Skills (Revealed on clicking 'More Skills')
+    { name: "JavaScript", category: "languages", icon: FileJson, level: 85 },
     { name: "HTML5", category: "frontend", icon: FileCode, level: 90 },
     { name: "CSS3 / Tailwind", category: "frontend", icon: Paintbrush, level: 85 },
-    { name: "React.js", category: "frontend", icon: Atom, level: 85 },
     { name: "Responsive Design", category: "frontend", icon: Laptop, level: 90 },
-
-    // Backend
-    { name: "Node.js", category: "backend", icon: Server, level: 80 },
     { name: "Express.js", category: "backend", icon: Server, level: 80 },
-    { name: "Django REST Framework", category: "backend", icon: Server, level: 92 },
     { name: "REST API Architecture", category: "backend", icon: Globe, level: 90 },
-
-    // Databases
-    { name: "PostgreSQL", category: "databases", icon: Database, level: 85 },
     { name: "MySQL", category: "databases", icon: Database, level: 80 },
     { name: "MongoDB", category: "databases", icon: Database, level: 75 },
-
-    // AI/ML
     { name: "PyTorch", category: "ml_ai", icon: Brain, level: 85 },
-    { name: "YOLOv8", category: "ml_ai", icon: Eye, level: 88 },
-    { name: "OpenCV", category: "ml_ai", icon: Camera, level: 90 },
     { name: "TensorFlow", category: "ml_ai", icon: Cpu, level: 82 },
     { name: "NLP", category: "ml_ai", icon: MessageSquareCode, level: 80 },
     { name: "LLMs Integration", category: "ml_ai", icon: Bot, level: 88 },
-    { name: "Google Gemini API", category: "ml_ai", icon: Sparkles, level: 92 },
-
-    // Tools & Cloud
+    { name: "Java", category: "languages", icon: Coffee, level: 75 },
+    { name: "SQL", category: "languages", icon: Database, level: 80 },
+    { name: "C", category: "languages", icon: Code, level: 70 },
     { name: "Git", category: "tools", icon: GitBranch, level: 85 },
     { name: "GitHub", category: "tools", icon: FaGithub, level: 85 },
     { name: "Prisma ORM", category: "tools", icon: Compass, level: 80 },
@@ -75,8 +70,6 @@ export default function Skills() {
     { name: "AWS S3", category: "tools", icon: HardDrive, level: 80 },
     { name: "Google Cloud", category: "tools", icon: Cloud, level: 75 },
     { name: "Postman", category: "tools", icon: Send, level: 85 },
-
-    // Professional Soft Skills
     { name: "Problem Solving", category: "soft_skills", icon: UserCheck, level: 90 },
     { name: "Team Collaboration", category: "soft_skills", icon: UserCheck, level: 85 },
     { name: "System Debugging", category: "soft_skills", icon: UserCheck, level: 90 },
@@ -87,6 +80,11 @@ export default function Skills() {
     activeCategory === "all"
       ? skillsData
       : skillsData.filter((skill) => skill.category === activeCategory);
+
+  const displayedSkills =
+    activeCategory === "all" && !showMore
+      ? filteredSkills.slice(0, INITIAL_LIMIT)
+      : filteredSkills;
 
   return (
     <section id="skills" className="py-24 relative px-6 bg-slate-50/50 dark:bg-slate-950/20">
@@ -107,13 +105,13 @@ export default function Skills() {
         </div>
 
         {/* Featured ML Progress Rings Dashboard Grid */}
-        <div className="mb-16">
-          <div className="text-xs font-mono font-bold text-slate-400 uppercase mb-6 flex items-center gap-2">
-            <Zap size={14} className="text-yellow-400" />
+        <div className="mb-12 sm:mb-16">
+          <div className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 uppercase mb-4 sm:mb-6 flex items-center gap-2">
+            <Zap size={14} className="text-yellow-400 shrink-0" />
             <span>Core Computer Vision &amp; AI Framework Gauges</span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {featuredMLSkills.map((item, idx) => {
               const Icon = item.icon;
               const radius = 34;
@@ -127,11 +125,11 @@ export default function Skills() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  className="telemetry-card p-4 text-center flex flex-col items-center justify-between group hover:-translate-y-1 transition-all"
+                  className="telemetry-card p-3 sm:p-4 text-center flex flex-col items-center justify-between group hover:-translate-y-1 transition-all"
                 >
-                  <div className="relative w-24 h-24 flex items-center justify-center mb-2">
-                    {/* SVG Ring */}
-                    <svg className="w-full h-full transform -rotate-90">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mb-1.5 sm:mb-2">
+                    {/* SVG Ring with responsive viewBox */}
+                    <svg viewBox="0 0 96 96" className="w-full h-full transform -rotate-90">
                       <circle
                         cx="48"
                         cy="48"
@@ -153,13 +151,13 @@ export default function Skills() {
                       />
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center font-mono">
-                      <Icon size={18} className="text-indigo-600 dark:text-cyan-300 mb-0.5 group-hover:scale-110 transition-transform" />
-                      <span className="text-xs font-extrabold text-slate-900 dark:text-white">{item.level}%</span>
+                      <Icon size={16} className="text-indigo-600 dark:text-cyan-300 mb-0.5 group-hover:scale-110 transition-transform" />
+                      <span className="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white">{item.level}%</span>
                     </div>
                   </div>
 
-                  <h4 className="font-bold text-sm text-slate-900 dark:text-white">{item.name}</h4>
-                  <span className="text-[10px] text-cyan-400 font-mono font-semibold mt-1">
+                  <h4 className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white truncate max-w-full">{item.name}</h4>
+                  <span className="text-[9px] sm:text-[10px] text-cyan-500 dark:text-cyan-400 font-mono font-semibold mt-0.5 sm:mt-1 truncate max-w-full">
                     {item.metric}
                   </span>
                 </motion.div>
@@ -169,20 +167,23 @@ export default function Skills() {
         </div>
 
         {/* Categories Tab Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
           {categories.map((cat) => {
             const Icon = cat.icon;
             return (
               <button
                 key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                onClick={() => {
+                  setActiveCategory(cat.id);
+                  if (cat.id !== "all") setShowMore(true);
+                }}
+                className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   activeCategory === cat.id
                     ? "bg-gradient-to-r from-cyan-500 via-purple-600 to-emerald-500 border-transparent text-white shadow-lg shadow-cyan-500/20 scale-105"
                     : "bg-white dark:bg-slate-900/80 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-700 shadow-xs"
                 }`}
               >
-                <Icon size={16} />
+                <Icon size={14} className="shrink-0" />
                 <span>{cat.label}</span>
               </button>
             );
@@ -192,9 +193,9 @@ export default function Skills() {
         {/* Skills Cards Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
         >
-          {filteredSkills.map((skill) => {
+          {displayedSkills.map((skill) => {
             const Icon = skill.icon;
             return (
               <motion.div
@@ -204,7 +205,7 @@ export default function Skills() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.25 }}
-                className="group relative bg-white/80 dark:bg-slate-900/60 hover:bg-white dark:hover:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/40 p-6 rounded-3xl glassmorphism hover:shadow-xl hover:shadow-cyan-500/10 flex flex-col justify-between transition-all duration-300"
+                className="group relative bg-white/80 dark:bg-slate-900/60 hover:bg-white dark:hover:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/40 p-5 sm:p-6 rounded-2xl sm:rounded-3xl glassmorphism hover:shadow-xl hover:shadow-cyan-500/10 flex flex-col justify-between transition-all duration-300"
               >
                 {/* Background glow hover */}
                 <div className="absolute top-0 right-0 w-28 h-28 bg-indigo-500/5 dark:bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition-colors pointer-events-none" />
@@ -213,8 +214,8 @@ export default function Skills() {
                   {/* Skill title & icon */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="p-3 bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-cyan-400 rounded-2xl group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-xs">
-                        <Icon size={20} />
+                      <div className="p-2.5 sm:p-3 bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-cyan-400 rounded-2xl group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-xs shrink-0">
+                        <Icon size={18} />
                       </div>
                       <span className="font-poppins font-bold text-slate-900 dark:text-white text-sm sm:text-base tracking-wide">
                         {skill.name}
@@ -244,9 +245,31 @@ export default function Skills() {
             );
           })}
         </motion.div>
+
+        {/* More Skills Toggle Button */}
+        {activeCategory === "all" && filteredSkills.length > INITIAL_LIMIT && (
+          <div className="mt-8 sm:mt-12 text-center">
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-400 text-slate-800 dark:text-white font-poppins font-bold text-sm shadow-xl hover:shadow-cyan-500/20 transition-all duration-300 group cursor-pointer"
+            >
+              <span>
+                {showMore
+                  ? "Show Top Skills Only"
+                  : `More Skills (+${filteredSkills.length - INITIAL_LIMIT} Left)`}
+              </span>
+              {showMore ? (
+                <ChevronUp size={18} className="text-cyan-400 group-hover:-translate-y-1 transition-transform" />
+              ) : (
+                <ChevronDown size={18} className="text-cyan-400 group-hover:translate-y-1 transition-transform" />
+              )}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
 }
+
 
 
