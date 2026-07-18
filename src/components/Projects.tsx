@@ -52,10 +52,10 @@ export default function Projects() {
         "Successfully enforced LLM output consistency through Gemini JSON Schema prompting.",
         "Engineered the interview scheduling marketplace flow.",
       ],
-      github: "https://github.com/piyushkumar/resume-iq", // Placeholder from resume
-      live: "https://resumeiq-demo.vercel.app", // Placeholder
+      github: "https://github.com/PiyushKuMar109/resume-iq",
+      live: "https://github.com/PiyushKuMar109/resume-iq",
       category: "ml_ai",
-      gradient: "from-indigo-650 via-cyan-550 to-blue-600",
+      gradient: "from-indigo-600 via-cyan-500 to-emerald-500",
     },
     {
       id: "saas-task",
@@ -78,10 +78,10 @@ export default function Projects() {
         "Implemented custom Prisma middlewares to inject organization IDs, mitigating data leak hazards.",
         "Secured critical endpoints achieving complete separation of user privileges.",
       ],
-      github: "https://github.com/piyushkumar/saas-task-tracker",
-      live: "https://saas-task-tracker.vercel.app",
+      github: "https://github.com/PiyushKuMar109/saas-task-tracker",
+      live: "https://github.com/PiyushKuMar109/saas-task-tracker",
       category: "backend",
-      gradient: "from-blue-650 to-cyan-500",
+      gradient: "from-cyan-600 to-indigo-600",
     },
     {
       id: "ray-voice",
@@ -104,8 +104,8 @@ export default function Projects() {
         "Engineered custom local intent parser minimizing network lookups.",
         "Automated desktop browser routines and log extractions by audio prompt.",
       ],
-      github: "https://github.com/piyushkumar/ray-voice-assistant",
-      live: "https://github.com/piyushkumar/ray-voice-assistant",
+      github: "https://github.com/PiyushKuMar109/ray-voice-assistant",
+      live: "https://github.com/PiyushKuMar109/ray-voice-assistant",
       category: "ml_ai",
       gradient: "from-emerald-600 via-teal-500 to-cyan-500",
     },
@@ -130,8 +130,8 @@ export default function Projects() {
         "Achieved 87% mAP on a custom dataset of industrial objects.",
         "Reduced model inference lag, facilitating standard 30 FPS feeds on standard platforms.",
       ],
-      github: "https://github.com/piyushkumar/object-detection",
-      live: "https://github.com/piyushkumar/object-detection",
+      github: "https://github.com/PiyushKuMar109/object-detection",
+      live: "https://github.com/PiyushKuMar109/object-detection",
       category: "ml_ai",
       gradient: "from-cyan-600 to-indigo-650",
     },
@@ -153,20 +153,20 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="py-24 relative px-6 bg-slate-900/50">
+    <section id="projects" className="py-24 relative px-6 bg-slate-100/50 dark:bg-slate-900/50">
       {/* Background decoration */}
-      <div className="absolute top-10 left-10 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[80px] pointer-events-none -z-10" />
+      <div className="absolute top-10 left-10 w-[300px] h-[300px] bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-[80px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-cyan-400 uppercase tracking-widest">
+          <h2 className="text-xs font-bold text-indigo-600 dark:text-cyan-400 uppercase tracking-widest flex items-center justify-center gap-2">
             Portfolio
           </h2>
-          <h3 className="text-3xl md:text-4xl font-montserrat font-extrabold text-white mt-2">
+          <h3 className="text-3xl md:text-5xl font-montserrat font-extrabold text-slate-900 dark:text-white mt-2 tracking-tight">
             Featured Projects
           </h3>
-          <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Search and Tag filter wrapper */}
@@ -179,22 +179,22 @@ export default function Projects() {
               placeholder="Search by project name or tech..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-800/60 border border-slate-700/50 focus:border-cyan-400 focus:outline-none rounded-xl py-3 pl-12 pr-4 text-sm text-white placeholder:text-slate-500 transition-colors"
+              className="w-full bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/50 focus:border-indigo-500 dark:focus:border-cyan-400 focus:outline-none rounded-xl py-3 pl-12 pr-4 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 shadow-xs transition-colors"
             />
           </div>
 
           {/* Technology dropdown filter */}
           <div className="flex items-center space-x-2 w-full md:w-auto">
-            <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider whitespace-nowrap hidden sm:inline">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold uppercase tracking-wider whitespace-nowrap hidden sm:inline">
               Filter by Tech:
             </span>
             <select
               value={selectedTag}
               onChange={(e) => setSelectedTag(e.target.value)}
-              className="w-full md:w-auto bg-slate-800/60 border border-slate-700/50 text-slate-300 hover:text-white focus:border-cyan-400 focus:outline-none rounded-xl py-3 px-4 text-sm transition-colors cursor-pointer"
+              className="w-full md:w-auto bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/50 text-slate-800 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:border-indigo-500 dark:focus:border-cyan-400 focus:outline-none rounded-xl py-3 px-4 text-sm shadow-xs transition-colors cursor-pointer"
             >
               {allTags.map((tag) => (
-                <option key={tag} value={tag} className="bg-slate-900 text-slate-300">
+                <option key={tag} value={tag} className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-300">
                   {tag === "all" ? "All Technologies" : tag}
                 </option>
               ))}
@@ -212,7 +212,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="group bg-slate-800/40 border border-slate-700/30 hover:border-cyan-400/35 rounded-2xl overflow-hidden glassmorphism flex flex-col justify-between"
+              className="group bg-white/80 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/30 hover:border-indigo-400 dark:hover:border-cyan-400/35 rounded-3xl overflow-hidden glassmorphism flex flex-col justify-between shadow-xl"
             >
               {/* Dynamic Abstract Card Header instead of placeholder image */}
               <div className={`h-48 bg-gradient-to-tr ${project.gradient} p-6 flex flex-col justify-between relative overflow-hidden`}>
@@ -224,7 +224,7 @@ export default function Projects() {
                   <span className="px-3 py-1 bg-black/30 backdrop-blur-md border border-white/10 text-white rounded-full text-xs font-mono">
                     &lt;{project.category}/&gt;
                   </span>
-                  <div className="text-white/60 font-mono text-xs flex items-center gap-1.5">
+                  <div className="text-white/80 font-mono text-xs flex items-center gap-1.5">
                     <Clock size={12} />
                     <span>{project.timeline}</span>
                   </div>
@@ -234,7 +234,7 @@ export default function Projects() {
                   <h4 className="text-xl md:text-2xl font-montserrat font-extrabold text-white tracking-wide">
                     {project.name.split(" — ")[0]}
                   </h4>
-                  <p className="text-white/80 font-mono text-xs truncate max-w-sm">
+                  <p className="text-white/90 font-mono text-xs truncate max-w-sm">
                     {project.technologies.slice(0, 4).join(" | ")}
                   </p>
                 </div>
@@ -247,7 +247,7 @@ export default function Projects() {
               {/* Card Body */}
               <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
                 <div className="space-y-3">
-                  <p className="text-slate-300 font-inter text-sm leading-relaxed">
+                  <p className="text-slate-700 dark:text-slate-300 font-inter text-sm leading-relaxed">
                     {project.shortDesc}
                   </p>
 
@@ -256,13 +256,13 @@ export default function Projects() {
                     {project.technologies.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-0.5 rounded-md bg-slate-900/60 border border-slate-700/60 text-slate-400 text-xs font-semibold"
+                        className="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-semibold"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 4 && (
-                      <span className="px-2.5 py-0.5 rounded-md bg-slate-900/60 border border-slate-700/60 text-cyan-400 text-xs font-bold">
+                      <span className="px-2.5 py-0.5 rounded-md bg-indigo-50 dark:bg-slate-900/60 border border-indigo-200 dark:border-slate-700/60 text-indigo-600 dark:text-cyan-400 text-xs font-bold">
                         +{project.technologies.length - 4} more
                       </span>
                     )}
@@ -270,10 +270,10 @@ export default function Projects() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center space-x-3 pt-6 border-t border-slate-800/80">
+                <div className="flex items-center space-x-3 pt-6 border-t border-slate-200 dark:border-slate-800/80">
                   <button
                     onClick={() => setActiveProjectModal(project)}
-                    className="flex-1 bg-slate-800 border border-slate-750 hover:border-cyan-400/40 text-cyan-400 hover:text-cyan-300 py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center space-x-2 transition-all"
+                    className="flex-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-750 hover:border-indigo-400 dark:hover:border-cyan-400/40 text-indigo-600 dark:text-cyan-400 hover:text-indigo-700 dark:hover:text-cyan-300 py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center space-x-2 transition-all cursor-pointer"
                   >
                     <BookOpen size={14} />
                     <span>View Case Study</span>
@@ -282,7 +282,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white rounded-xl text-xs transition-colors"
+                    className="p-2.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-xl text-xs transition-colors cursor-pointer"
                     title="GitHub Repository"
                   >
                     <FaGithub size={16} />

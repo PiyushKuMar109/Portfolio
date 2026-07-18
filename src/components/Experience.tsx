@@ -33,13 +33,13 @@ export default function Experience() {
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-cyan-400 uppercase tracking-widest">
-            Experience
+          <h2 className="text-xs font-bold text-cyan-400 uppercase tracking-widest flex items-center justify-center gap-2">
+            Work &amp; Internships
           </h2>
-          <h3 className="text-3xl md:text-4xl font-montserrat font-extrabold text-white mt-2">
-            Work History
+          <h3 className="text-3xl md:text-5xl font-montserrat font-extrabold text-white mt-2 tracking-tight">
+            Professional Experience
           </h3>
-          <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Timeline container */}
@@ -59,23 +59,23 @@ export default function Experience() {
               </div>
 
               {/* Experience Card */}
-              <div className="glassmorphism p-6 md:p-8 rounded-3xl border border-slate-850 hover:border-cyan-500/20 transition-all space-y-6">
+              <div className="glassmorphism p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-cyan-500/30 transition-all space-y-6 shadow-lg">
                 {/* Header */}
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="space-y-1">
-                    <span className="text-xs text-cyan-400 font-extrabold tracking-wider uppercase">
+                    <span className="text-xs text-indigo-600 dark:text-cyan-400 font-extrabold tracking-wider uppercase font-mono">
                       Internship Position
                     </span>
-                    <h4 className="text-xl md:text-2xl font-montserrat font-extrabold text-white">
+                    <h4 className="text-xl md:text-2xl font-montserrat font-extrabold text-slate-900 dark:text-white">
                       {exp.role}
                     </h4>
-                    <span className="text-slate-300 font-poppins font-semibold text-base block mt-0.5">
+                    <span className="text-slate-700 dark:text-slate-300 font-poppins font-semibold text-base block mt-0.5">
                       {exp.company}
                     </span>
                   </div>
 
-                  <div className="flex flex-col sm:items-end space-y-1 text-xs md:text-sm text-slate-400 font-mono">
-                    <span className="flex items-center space-x-1.5 px-3 py-1 bg-slate-900 border border-slate-850 rounded-full text-cyan-400 font-semibold">
+                  <div className="flex flex-col sm:items-end space-y-1 text-xs md:text-sm text-slate-600 dark:text-slate-400 font-mono">
+                    <span className="flex items-center space-x-1.5 px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-750 rounded-full text-indigo-600 dark:text-cyan-400 font-semibold shadow-xs">
                       <Calendar size={12} />
                       <span>{exp.duration}</span>
                     </span>
@@ -88,13 +88,13 @@ export default function Experience() {
 
                 {/* Responsibilities list */}
                 <div className="space-y-3">
-                  <h5 className="font-poppins font-bold text-slate-200 text-sm">
+                  <h5 className="font-poppins font-bold text-slate-900 dark:text-slate-200 text-sm">
                     Key Responsibilities:
                   </h5>
                   <ul className="space-y-3 pl-1">
                     {exp.responsibilities.map((resp, i) => (
-                      <li key={i} className="text-slate-300 text-xs md:text-sm leading-relaxed flex items-start space-x-2.5">
-                        <CheckCircle2 className="text-cyan-400 shrink-0 mt-0.5" size={14} />
+                      <li key={i} className="text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed flex items-start space-x-2.5">
+                        <CheckCircle2 className="text-indigo-600 dark:text-cyan-400 shrink-0 mt-0.5" size={14} />
                         <span>{resp}</span>
                       </li>
                     ))}
@@ -103,13 +103,13 @@ export default function Experience() {
 
                 {/* Achievements block */}
                 <div className="space-y-3 pt-2">
-                  <h5 className="font-poppins font-bold text-slate-200 text-sm">
+                  <h5 className="font-poppins font-bold text-slate-900 dark:text-slate-200 text-sm">
                     Achievements:
                   </h5>
                   <ul className="space-y-2.5 pl-1">
                     {exp.achievements.map((ach, i) => (
-                      <li key={i} className="text-slate-300 text-xs md:text-sm flex items-start space-x-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></span>
+                      <li key={i} className="text-slate-700 dark:text-slate-300 text-xs md:text-sm flex items-start space-x-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
                         <span>{ach}</span>
                       </li>
                     ))}
@@ -118,16 +118,16 @@ export default function Experience() {
 
                 {/* Technologies used */}
                 <div className="space-y-3 pt-2">
-                  <h5 className="font-poppins font-bold text-slate-400 text-xs uppercase tracking-wider">
+                  <h5 className="font-poppins font-bold text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider">
                     Core Focus Technologies:
                   </h5>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-slate-900 border border-slate-800 text-slate-300 text-xs font-semibold rounded-lg font-mono flex items-center space-x-1.5"
+                        className="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-lg font-mono flex items-center space-x-1.5 shadow-xs"
                       >
-                        <Cpu size={10} className="text-cyan-400" />
+                        <Cpu size={10} className="text-indigo-600 dark:text-cyan-400" />
                         <span>{tech}</span>
                       </span>
                     ))}

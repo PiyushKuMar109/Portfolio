@@ -9,48 +9,91 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
+import GitHubActivity from "@/components/GitHubActivity";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AIDashboardWidget from "@/components/AIDashboardWidget";
+
+export type ThemeMode = "light" | "dark" | "ai";
+export type ColorPalette = "cyber-blue" | "purple-neon" | "emerald" | "orange" | "monochrome";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [theme, setTheme] = useState<ThemeMode>("ai");
+  const [colorPalette, setColorPalette] = useState<ColorPalette>("cyber-blue");
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      document.documentElement.style.setProperty("--background", "#0F172A");
-      document.documentElement.style.setProperty("--foreground", "#F8FAFC");
-    } else {
-      document.documentElement.classList.remove("dark");
-      // Premium warm light theme
-      document.documentElement.style.setProperty("--background", "#F8FAFC");
-      document.documentElement.style.setProperty("--foreground", "#0F172A");
+    // Check saved theme & palette in localStorage
+    const savedTheme = localStorage.getItem("piyush_portfolio_theme") as ThemeMode | null;
+    if (savedTheme && ["light", "dark", "ai"].includes(savedTheme)) {
+      setTheme(savedTheme);
     }
-  }, [darkMode]);
+
+    const savedPalette = localStorage.getItem("piyush_portfolio_palette") as ColorPalette | null;
+    if (savedPalette && ["cyber-blue", "purple-neon", "emerald", "orange", "monochrome"].includes(savedPalette)) {
+      setColorPalette(savedPalette);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("piyush_portfolio_theme", theme);
+    localStorage.setItem("piyush_portfolio_palette", colorPalette);
+    const root = document.documentElement;
+
+    root.classList.remove("dark", "ai-theme");
+
+    if (theme === "ai") {
+      root.classList.add("dark", "ai-theme");
+      root.style.setProperty("--background", "#030712");
+      root.style.setProperty("--foreground", "#F0FDF4");
+    } else if (theme === "dark") {
+      root.classList.add("dark");
+      root.style.setProperty("--background", "#0B0F19");
+      root.style.setProperty("--foreground", "#F8FAFC");
+    } else {
+      root.style.setProperty("--background", "#FAFAFC");
+      root.style.setProperty("--foreground", "#090D16");
+    }
+  }, [theme, colorPalette]);
+
+  // Backward compatibility prop helper
+  const isDarkMode = theme === "dark" || theme === "ai";
 
   return (
-    <div className="relative min-h-screen flex flex-col transition-colors duration-300">
+    <div className={`relative min-h-screen flex flex-col transition-colors duration-500 palette-${colorPalette} ${theme === "ai" ? "ai-theme" : ""}`}>
       {/* Visual background decorations */}
-      <ParticleBackground />
+      <ParticleBackground theme={theme} />
       <AnimatedCursor />
 
       {/* Header Sticky Navigation */}
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Navbar
+        theme={theme}
+        setTheme={setTheme}
+        colorPalette={colorPalette}
+        setColorPalette={setColorPalette}
+        darkMode={isDarkMode}
+        setDarkMode={(val) => setTheme(val ? "dark" : "light")}
+      />
 
       {/* Main Sections */}
       <main className="flex-grow">
-        <Hero />
+        <Hero theme={theme} setTheme={setTheme} colorPalette={colorPalette} />
         <About />
         <Skills />
         <Experience />
         <Projects />
+        <GitHubActivity theme={theme} colorPalette={colorPalette} />
         <Certifications />
         <Contact />
       </main>
+
+      {/* AI Dashboard Floating Telemetry Widget */}
+      <AIDashboardWidget theme={theme} setTheme={setTheme} />
 
       {/* Footer Details */}
       <Footer />
     </div>
   );
 }
+
+

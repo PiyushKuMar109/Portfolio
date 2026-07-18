@@ -53,30 +53,30 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative px-6">
+    <section id="contact" className="py-24 relative px-6 bg-slate-50/50 dark:bg-slate-950/20">
       {/* Background Gradients */}
-      <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-cyan-400 uppercase tracking-widest">
+          <h2 className="text-xs font-bold text-indigo-600 dark:text-cyan-400 uppercase tracking-widest flex items-center justify-center gap-2">
             Contact
           </h2>
-          <h3 className="text-3xl md:text-4xl font-montserrat font-extrabold text-white mt-2">
+          <h3 className="text-3xl md:text-5xl font-montserrat font-extrabold text-slate-900 dark:text-white mt-2 tracking-tight">
             Get In Touch
           </h3>
-          <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 mx-auto mt-4 rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column - Contact details */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="glassmorphism p-8 rounded-3xl border border-slate-800 space-y-6">
-              <h4 className="text-xl font-poppins font-bold text-white">
+            <div className="glassmorphism p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 space-y-6 shadow-xl">
+              <h4 className="text-xl font-poppins font-bold text-slate-900 dark:text-white">
                 Contact Information
               </h4>
-              <p className="text-slate-400 text-sm font-inter leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 text-sm font-inter leading-relaxed">
                 Feel free to reach out for internship opportunities, job openings, project collaborations, or tech queries! I am happy to connect.
               </p>
 
@@ -84,14 +84,14 @@ export default function Contact() {
                 {/* Email */}
                 <a
                   href="mailto:piyushbaskar4@gmail.com"
-                  className="flex items-center space-x-4 p-3 bg-slate-900/50 border border-slate-850 hover:border-cyan-400/30 rounded-2xl group transition-all"
+                  className="flex items-center space-x-4 p-3 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-cyan-400/30 rounded-2xl group transition-all shadow-xs"
                 >
-                  <div className="p-3 bg-slate-800 text-cyan-400 rounded-xl group-hover:scale-105 transition-transform duration-200">
+                  <div className="p-3 bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-cyan-400 rounded-xl group-hover:scale-105 transition-transform duration-200">
                     <Mail size={18} />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-widest">Email Me</span>
-                    <span className="text-slate-200 text-sm font-semibold font-mono block mt-0.5 group-hover:text-white">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold block uppercase tracking-widest">Email Me</span>
+                    <span className="text-slate-800 dark:text-slate-200 text-sm font-semibold font-mono block mt-0.5 group-hover:text-indigo-600 dark:group-hover:text-cyan-400">
                       piyushbaskar4@gmail.com
                     </span>
                   </div>
@@ -100,27 +100,27 @@ export default function Contact() {
                 {/* Phone */}
                 <a
                   href="tel:+917048941184"
-                  className="flex items-center space-x-4 p-3 bg-slate-900/50 border border-slate-850 hover:border-cyan-400/30 rounded-2xl group transition-all"
+                  className="flex items-center space-x-4 p-3 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-cyan-400/30 rounded-2xl group transition-all shadow-xs"
                 >
-                  <div className="p-3 bg-slate-800 text-cyan-400 rounded-xl group-hover:scale-105 transition-transform duration-200">
+                  <div className="p-3 bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-cyan-400 rounded-xl group-hover:scale-105 transition-transform duration-200">
                     <Phone size={18} />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-widest">Call Me</span>
-                    <span className="text-slate-200 text-sm font-semibold font-mono block mt-0.5 group-hover:text-white">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold block uppercase tracking-widest">Call Me</span>
+                    <span className="text-slate-800 dark:text-slate-200 text-sm font-semibold font-mono block mt-0.5 group-hover:text-indigo-600 dark:group-hover:text-cyan-400">
                       +91-7048941184
                     </span>
                   </div>
                 </a>
 
                 {/* Location */}
-                <div className="flex items-center space-x-4 p-3 bg-slate-900/50 border border-slate-850 rounded-2xl">
-                  <div className="p-3 bg-slate-800 text-cyan-400 rounded-xl">
+                <div className="flex items-center space-x-4 p-3 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xs">
+                  <div className="p-3 bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-cyan-400 rounded-xl">
                     <MapPin size={18} />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-widest">Location</span>
-                    <span className="text-slate-200 text-sm font-semibold font-mono block mt-0.5">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold block uppercase tracking-widest">Location</span>
+                    <span className="text-slate-800 dark:text-slate-200 text-sm font-semibold font-mono block mt-0.5">
                       Faridabad, Haryana, India
                     </span>
                   </div>
@@ -128,44 +128,43 @@ export default function Contact() {
               </div>
 
               {/* Social Profiles */}
-              <div className="flex items-center space-x-4 pt-6 border-t border-slate-850">
+              <div className="flex items-center space-x-4 pt-6 border-t border-slate-200 dark:border-slate-800">
                 <a
-                  href="https://github.com/piyushkumar"
+                  href="https://github.com/PiyushKuMar109"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-slate-850 text-slate-400 hover:text-white border border-slate-800 hover:border-cyan-400/40 rounded-xl transition-all"
+                  className="p-3.5 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-cyan-400 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-cyan-500/40 rounded-xl transition-all hover:scale-105 shadow-xs"
                   aria-label="GitHub Profile"
                 >
-                  <FaGithub size={18} />
+                  <FaGithub size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/piyushkumar"
+                  href="https://www.linkedin.com/in/piyush-kumar-0b6024319/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-slate-850 text-slate-400 hover:text-white border border-slate-800 hover:border-cyan-400/40 rounded-xl transition-all"
+                  className="p-3.5 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-cyan-400 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-cyan-500/40 rounded-xl transition-all hover:scale-105 shadow-xs"
                   aria-label="LinkedIn Profile"
                 >
-                  <FaLinkedin size={18} />
+                  <FaLinkedin size={20} />
                 </a>
               </div>
             </div>
 
-            {/* Google Map Placeholder clearly marked */}
-            <div className="border border-dashed border-slate-800 bg-slate-900/40 p-6 rounded-3xl text-center relative overflow-hidden flex flex-col items-center justify-center space-y-2 h-[200px]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-400/5 to-transparent pointer-events-none" />
-              <MapPin size={24} className="text-slate-600 animate-bounce" />
-              <span className="font-semibold text-white text-xs">Google Map Visual Placeholder</span>
-              <span className="text-[9px] text-slate-400">Faridabad, Haryana (28.4089° N, 77.3178° E)</span>
-              <span className="text-[9px] text-cyan-400 font-mono bg-cyan-950/40 px-2 py-0.5 border border-cyan-500/20 rounded mt-2">
-                Placeholder - Embed your API Key / Map iframe
-              </span>
+            {/* Location Overview Badge */}
+            <div className="border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/60 p-6 rounded-3xl text-center relative overflow-hidden flex flex-col items-center justify-center space-y-2.5 h-[180px] shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-sky-500/5 to-emerald-500/10 pointer-events-none" />
+              <div className="p-3 bg-slate-100 dark:bg-slate-950 rounded-full border border-slate-200 dark:border-slate-800 text-indigo-600 dark:text-cyan-400 shadow-xs">
+                <MapPin size={22} className="animate-bounce" />
+              </div>
+              <span className="font-poppins font-bold text-slate-900 dark:text-white text-sm">Location Base</span>
+              <span className="text-xs text-slate-600 dark:text-slate-400 font-mono">Faridabad, Haryana, India (28.4089° N, 77.3178° E)</span>
             </div>
           </div>
 
           {/* Right Column - Contact Form */}
           <div className="lg:col-span-7">
-            <div className="glassmorphism p-8 rounded-3xl border border-slate-800 space-y-6">
-              <h4 className="text-xl font-poppins font-bold text-white">
+            <div className="glassmorphism p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 space-y-6 shadow-xl">
+              <h4 className="text-xl font-poppins font-bold text-slate-900 dark:text-white">
                 Send a Message
               </h4>
 
@@ -173,7 +172,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name */}
                   <div className="space-y-1.5">
-                    <label htmlFor="name" className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                    <label htmlFor="name" className="text-xs text-slate-600 dark:text-slate-400 font-semibold uppercase tracking-wider">
                       Name
                     </label>
                     <input
@@ -182,17 +181,17 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full bg-slate-900/80 border ${
-                        errors.name ? "border-red-500/50 focus:border-red-500" : "border-slate-800 focus:border-cyan-400"
-                      } focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors`}
+                      className={`w-full bg-white dark:bg-slate-900/80 border ${
+                        errors.name ? "border-red-500/50 focus:border-red-500" : "border-slate-200 dark:border-slate-800 focus:border-indigo-500 dark:focus:border-cyan-400"
+                      } focus:outline-none rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white shadow-xs transition-colors`}
                       placeholder="Your Name"
                     />
-                    {errors.name && <span className="text-xs text-red-400 font-medium">{errors.name}</span>}
+                    {errors.name && <span className="text-xs text-red-500 font-medium">{errors.name}</span>}
                   </div>
 
                   {/* Email */}
                   <div className="space-y-1.5">
-                    <label htmlFor="email" className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                    <label htmlFor="email" className="text-xs text-slate-600 dark:text-slate-400 font-semibold uppercase tracking-wider">
                       Email
                     </label>
                     <input
@@ -201,18 +200,18 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full bg-slate-900/80 border ${
-                        errors.email ? "border-red-500/50 focus:border-red-500" : "border-slate-800 focus:border-cyan-400"
-                      } focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors`}
+                      className={`w-full bg-white dark:bg-slate-900/80 border ${
+                        errors.email ? "border-red-500/50 focus:border-red-500" : "border-slate-200 dark:border-slate-800 focus:border-indigo-500 dark:focus:border-cyan-400"
+                      } focus:outline-none rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white shadow-xs transition-colors`}
                       placeholder="your.email@example.com"
                     />
-                    {errors.email && <span className="text-xs text-red-400 font-medium">{errors.email}</span>}
+                    {errors.email && <span className="text-xs text-red-500 font-medium">{errors.email}</span>}
                   </div>
                 </div>
 
                 {/* Subject */}
                 <div className="space-y-1.5">
-                  <label htmlFor="subject" className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                  <label htmlFor="subject" className="text-xs text-slate-600 dark:text-slate-400 font-semibold uppercase tracking-wider">
                     Subject
                   </label>
                   <input
@@ -221,17 +220,17 @@ export default function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className={`w-full bg-slate-900/80 border ${
-                      errors.subject ? "border-red-500/50 focus:border-red-500" : "border-slate-800 focus:border-cyan-400"
-                    } focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors`}
+                    className={`w-full bg-white dark:bg-slate-900/80 border ${
+                      errors.subject ? "border-red-500/50 focus:border-red-500" : "border-slate-200 dark:border-slate-800 focus:border-indigo-500 dark:focus:border-cyan-400"
+                    } focus:outline-none rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white shadow-xs transition-colors`}
                     placeholder="Project Inquiry / Job Opening"
                   />
-                  {errors.subject && <span className="text-xs text-red-400 font-medium">{errors.subject}</span>}
+                  {errors.subject && <span className="text-xs text-red-500 font-medium">{errors.subject}</span>}
                 </div>
 
                 {/* Message */}
                 <div className="space-y-1.5">
-                  <label htmlFor="message" className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                  <label htmlFor="message" className="text-xs text-slate-600 dark:text-slate-400 font-semibold uppercase tracking-wider">
                     Message
                   </label>
                   <textarea
@@ -240,19 +239,19 @@ export default function Contact() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full bg-slate-900/80 border ${
-                      errors.message ? "border-red-500/50 focus:border-red-500" : "border-slate-800 focus:border-cyan-400"
-                    } focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors resize-none`}
+                    className={`w-full bg-white dark:bg-slate-900/80 border ${
+                      errors.message ? "border-red-500/50 focus:border-red-500" : "border-slate-200 dark:border-slate-800 focus:border-indigo-500 dark:focus:border-cyan-400"
+                    } focus:outline-none rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white shadow-xs transition-colors resize-none`}
                     placeholder="Tell me about the opportunity or project details..."
                   />
-                  {errors.message && <span className="text-xs text-red-400 font-medium">{errors.message}</span>}
+                  {errors.message && <span className="text-xs text-red-500 font-medium">{errors.message}</span>}
                 </div>
 
                 {/* Submit button */}
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full bg-gradient-to-r from-primary to-secondary text-white py-3.5 px-6 rounded-xl text-sm font-semibold flex items-center justify-center space-x-2 hover:brightness-110 disabled:opacity-50 transition-all cursor-pointer shadow-lg shadow-primary/10"
+                  className="w-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white py-3.5 px-6 rounded-xl text-sm font-semibold flex items-center justify-center space-x-2 hover:brightness-110 disabled:opacity-50 transition-all cursor-pointer shadow-lg shadow-indigo-500/20"
                 >
                   {status === "sending" ? (
                     <span>Sending message...</span>

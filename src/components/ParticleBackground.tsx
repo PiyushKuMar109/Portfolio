@@ -1,8 +1,13 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { ThemeMode } from "@/app/page";
 
-export default function ParticleBackground() {
+interface ParticleBackgroundProps {
+  theme?: ThemeMode;
+}
+
+export default function ParticleBackground({ theme = "ai" }: ParticleBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -26,24 +31,32 @@ export default function ParticleBackground() {
       alpha: number;
     }> = [];
 
-    // Colors aligned with primary (#4F46E5) and secondary (#06B6D4)
-    const colors = ["rgba(79, 70, 229, 0.4)", "rgba(6, 182, 212, 0.4)", "rgba(34, 197, 94, 0.25)"];
+    // Colors aligned with current active theme
+    const colors =
+      theme === "ai"
+        ? ["rgba(0, 243, 255, 0.6)", "rgba(168, 85, 247, 0.6)", "rgba(0, 255, 157, 0.5)", "rgba(236, 72, 153, 0.5)"]
+        : theme === "dark"
+        ? ["rgba(79, 70, 229, 0.4)", "rgba(6, 182, 212, 0.4)", "rgba(34, 197, 94, 0.25)"]
+        : ["rgba(99, 102, 241, 0.25)", "rgba(14, 165, 233, 0.25)", "rgba(16, 185, 129, 0.2)"];
 
     // Initialize particles
-    const particleCount = Math.min(60, Math.floor((width * height) / 25000));
+    const particleCount = Math.min(
+      theme === "ai" ? 80 : 60,
+      Math.floor((width * height) / (theme === "ai" ? 18000 : 25000))
+    );
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 3 + 1,
+        vx: (Math.random() - 0.5) * (theme === "ai" ? 0.6 : 0.4),
+        vy: (Math.random() - 0.5) * (theme === "ai" ? 0.6 : 0.4),
+        size: Math.random() * (theme === "ai" ? 3.5 : 3) + 1,
         color: colors[Math.floor(Math.random() * colors.length)],
         alpha: Math.random() * 0.5 + 0.3,
       });
     }
 
-    const mouse = { x: 0, y: 0, radius: 120, active: false };
+    const mouse = { x: 0, y: 0, radius: theme === "ai" ? 150 : 120, active: false };
 
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
@@ -86,8 +99,8 @@ export default function ParticleBackground() {
           if (distance < mouse.radius) {
             const force = (mouse.radius - distance) / mouse.radius;
             const angle = Math.atan2(dy, dx);
-            p.x += Math.cos(angle) * force * 1.5;
-            p.y += Math.sin(angle) * force * 1.5;
+            p.x += Math.cos(angle) * force * (theme === "ai" ? 2.2 : 1.5);
+            p.y += Math.sin(angle) * force * (theme === "ai" ? 2.2 : 1.5);
           }
         }
 
@@ -95,13 +108,14 @@ export default function ParticleBackground() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = theme === "ai" ? 12 : 8;
         ctx.shadowColor = p.color;
         ctx.fill();
         ctx.shadowBlur = 0; // reset shadow
       });
 
       // Draw light lines connecting close particles
+      const maxDistance = theme === "ai" ? 125 : 100;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const p1 = particles[i];
@@ -110,13 +124,18 @@ export default function ParticleBackground() {
           const dy = p1.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 100) {
-            const alpha = (100 - dist) / 100 * 0.15;
+          if (dist < maxDistance) {
+            const alpha = ((maxDistance - dist) / maxDistance) * (theme === "ai" ? 0.28 : 0.15);
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle =
+              theme === "ai"
+                ? `rgba(0, 243, 255, ${alpha})`
+                : theme === "dark"
+                ? `rgba(6, 182, 212, ${alpha})`
+                : `rgba(99, 102, 241, ${alpha})`;
+            ctx.lineWidth = theme === "ai" ? 0.75 : 0.5;
             ctx.stroke();
           }
         }
@@ -133,12 +152,19 @@ export default function ParticleBackground() {
       window.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none -z-10 bg-[#0F172A]"
+      className={`fixed inset-0 w-full h-full pointer-events-none -z-10 transition-colors duration-500 ${
+        theme === "ai"
+          ? "bg-[#030712]"
+          : theme === "dark"
+          ? "bg-[#0F172A]"
+          : "bg-[#F8FAFC]"
+      }`}
     />
   );
 }
+

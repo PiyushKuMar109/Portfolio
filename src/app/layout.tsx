@@ -24,6 +24,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://piyushkumar.dev"),
   title: "Piyush Kumar | Full Stack Developer & AI Engineer Portfolio",
   description: "Explore the portfolio of Piyush Kumar, a Software Engineer, Full Stack Developer, and AI Engineer specializing in React, Node.js, Python, Django, Machine Learning (YOLOv8, OpenCV), and AI integrations.",
   keywords: [
