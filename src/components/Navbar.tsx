@@ -35,7 +35,10 @@ export default function Navbar({
   const paletteOptions: Array<{ id: ColorPalette; name: string; color: string }> = [
     { id: "cyber-blue", name: "Cyber Blue", color: "bg-blue-500" },
     { id: "purple-neon", name: "Purple Neon", color: "bg-purple-500" },
-    { id: "emerald", name: "Emerald", color: "bg-emerald-500" },
+    { id: "matrix-green", name: "Matrix Code Green", color: "bg-emerald-400" },
+    { id: "cyberpunk", name: "Cyberpunk Magenta", color: "bg-pink-500" },
+    { id: "amber", name: "Amber Radar", color: "bg-amber-500" },
+    { id: "emerald", name: "Emerald", color: "bg-teal-500" },
     { id: "orange", name: "Orange", color: "bg-orange-500" },
     { id: "monochrome", name: "Monochrome", color: "bg-zinc-200" },
   ];

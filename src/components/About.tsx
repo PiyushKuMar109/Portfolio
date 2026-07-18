@@ -8,7 +8,7 @@ export default function About() {
   const stats = [
     { label: "Projects Built", value: "4+" },
     { label: "Internship Duration", value: "4 Months" },
-    { label: "Certifications", value: "3" },
+    { label: "Certifications", value: "6" },
     { label: "Technical Skills", value: "30+" },
   ];
 

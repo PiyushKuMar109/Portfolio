@@ -206,7 +206,7 @@ body {
   animation: blink 1s step-end infinite;
 }
 
-/* 5 AI Dashboard Theme Color Palette Classes */
+/* Expanded AI Dashboard Theme Color Palette Classes */
 .palette-cyber-blue {
   --primary-glow: #3B82F6;
   --accent-glow: #22D3EE;
@@ -223,6 +223,36 @@ body {
 }
 .palette-purple-neon .gradient-text-ai {
   background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.palette-matrix-green {
+  --primary-glow: #00FF66;
+  --accent-glow: #10B981;
+}
+.palette-matrix-green .gradient-text-ai {
+  background: linear-gradient(135deg, #00FF66 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.palette-cyberpunk {
+  --primary-glow: #EC4899;
+  --accent-glow: #00F3FF;
+}
+.palette-cyberpunk .gradient-text-ai {
+  background: linear-gradient(135deg, #EC4899 0%, #00F3FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.palette-amber {
+  --primary-glow: #F59E0B;
+  --accent-glow: #FACC15;
+}
+.palette-amber .gradient-text-ai {
+  background: linear-gradient(135deg, #F59E0B 0%, #FACC15 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -252,7 +282,7 @@ body {
   --accent-glow: #FAFAFA;
 }
 .palette-monochrome .gradient-text-ai {
-  background: linear-gradient(135deg, #FAFAFA 0%, #9CA3AF 100%);
+  background: linear-gradient(135deg, #27272A 0%, #71717A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -266,10 +296,16 @@ body {
 
 /* Dashboard Telemetry Meter Grid */
 .telemetry-card {
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+}
+
+.dark .telemetry-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .ai-theme .telemetry-card {
@@ -282,6 +318,7 @@ body {
   border-color: rgba(0, 243, 255, 0.5);
   box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
 }
+
 
 
 

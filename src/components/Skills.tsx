@@ -136,7 +136,7 @@ export default function Skills() {
                         cx="48"
                         cy="48"
                         r={radius}
-                        className="stroke-slate-800"
+                        className="stroke-slate-200 dark:stroke-slate-800"
                         strokeWidth="6"
                         fill="transparent"
                       />
@@ -144,7 +144,7 @@ export default function Skills() {
                         cx="48"
                         cy="48"
                         r={radius}
-                        className="progress-ring-circle stroke-cyan-400"
+                        className="progress-ring-circle stroke-indigo-600 dark:stroke-cyan-400"
                         strokeWidth="6"
                         strokeDasharray={circumference}
                         strokeDashoffset={strokeOffset}
@@ -153,8 +153,8 @@ export default function Skills() {
                       />
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center font-mono">
-                      <Icon size={18} className="text-cyan-300 mb-0.5 group-hover:scale-110 transition-transform" />
-                      <span className="text-xs font-extrabold text-white">{item.level}%</span>
+                      <Icon size={18} className="text-indigo-600 dark:text-cyan-300 mb-0.5 group-hover:scale-110 transition-transform" />
+                      <span className="text-xs font-extrabold text-slate-900 dark:text-white">{item.level}%</span>
                     </div>
                   </div>
 

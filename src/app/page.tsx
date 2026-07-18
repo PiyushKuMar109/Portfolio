@@ -16,7 +16,15 @@ import Footer from "@/components/Footer";
 import AIDashboardWidget from "@/components/AIDashboardWidget";
 
 export type ThemeMode = "light" | "dark" | "ai";
-export type ColorPalette = "cyber-blue" | "purple-neon" | "emerald" | "orange" | "monochrome";
+export type ColorPalette =
+  | "cyber-blue"
+  | "purple-neon"
+  | "matrix-green"
+  | "cyberpunk"
+  | "amber"
+  | "emerald"
+  | "orange"
+  | "monochrome";
 
 export default function Home() {
   const [theme, setTheme] = useState<ThemeMode>("ai");
@@ -30,7 +38,19 @@ export default function Home() {
     }
 
     const savedPalette = localStorage.getItem("piyush_portfolio_palette") as ColorPalette | null;
-    if (savedPalette && ["cyber-blue", "purple-neon", "emerald", "orange", "monochrome"].includes(savedPalette)) {
+    if (
+      savedPalette &&
+      [
+        "cyber-blue",
+        "purple-neon",
+        "matrix-green",
+        "cyberpunk",
+        "amber",
+        "emerald",
+        "orange",
+        "monochrome",
+      ].includes(savedPalette)
+    ) {
       setColorPalette(savedPalette);
     }
   }, []);

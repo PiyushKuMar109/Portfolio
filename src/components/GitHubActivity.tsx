@@ -54,8 +54,23 @@ export default function GitHubActivity({ theme = "ai", colorPalette = "cyber-blu
   ];
 
   const getCellColor = (level: number) => {
-    if (level === 0) return "bg-slate-900 border-slate-800/80";
-    if (colorPalette === "purple-neon") {
+    if (level === 0) return theme === "light" ? "bg-slate-100 border-slate-200" : "bg-slate-900 border-slate-800/80";
+    if (colorPalette === "matrix-green") {
+      if (level === 1) return "bg-emerald-950/80 border-emerald-800/50";
+      if (level === 2) return "bg-emerald-700/70 border-emerald-500/60";
+      if (level === 3) return "bg-emerald-500 border-emerald-300 shadow-[0_0_8px_#10b981]";
+      return "bg-emerald-300 border-emerald-100 shadow-[0_0_12px_#00ff66]";
+    } else if (colorPalette === "cyberpunk") {
+      if (level === 1) return "bg-pink-950/80 border-pink-800/50";
+      if (level === 2) return "bg-pink-700/70 border-pink-500/60";
+      if (level === 3) return "bg-pink-500 border-pink-300 shadow-[0_0_8px_#ec4899]";
+      return "bg-cyan-300 border-white shadow-[0_0_12px_#00f3ff]";
+    } else if (colorPalette === "amber") {
+      if (level === 1) return "bg-amber-950/80 border-amber-800/50";
+      if (level === 2) return "bg-amber-700/70 border-amber-500/60";
+      if (level === 3) return "bg-amber-500 border-amber-300 shadow-[0_0_8px_#f59e0b]";
+      return "bg-amber-300 border-amber-100 shadow-[0_0_12px_#facc15]";
+    } else if (colorPalette === "purple-neon") {
       if (level === 1) return "bg-purple-950/80 border-purple-800/50";
       if (level === 2) return "bg-purple-800/70 border-purple-600/60";
       if (level === 3) return "bg-purple-600 border-purple-400 shadow-[0_0_8px_#a855f7]";
@@ -88,9 +103,9 @@ export default function GitHubActivity({ theme = "ai", colorPalette = "cyber-blu
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-xs font-semibold uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-cyan-500/10 text-indigo-600 dark:text-cyan-400 border border-indigo-200 dark:border-cyan-500/30 text-xs font-semibold uppercase tracking-widest mb-3">
             <Activity size={14} className="animate-pulse" />
-            <span>Telemetry & Code Contributions</span>
+            <span>Telemetry &amp; Code Contributions</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-montserrat font-extrabold text-slate-900 dark:text-white">
             GitHub Activity &amp; <span className="gradient-text-ai">Achievements</span>
@@ -109,9 +124,9 @@ export default function GitHubActivity({ theme = "ai", colorPalette = "cyber-blu
           className="telemetry-card p-6 sm:p-8 mb-12 relative overflow-hidden"
         >
           {/* Header Stats Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-6 pb-6 mb-6 border-b border-slate-800">
+          <div className="flex flex-wrap items-center justify-between gap-6 pb-6 mb-6 border-b border-slate-200 dark:border-slate-800">
             <div className="flex items-center space-x-3">
-              <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800 text-white shadow-md">
+              <div className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white shadow-xs">
                 <FaGithub size={24} />
               </div>
               <div>
@@ -119,12 +134,12 @@ export default function GitHubActivity({ theme = "ai", colorPalette = "cyber-blu
                   href="https://github.com/PiyushKuMar109"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
+                  className="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors"
                 >
                   @PiyushKuMar109
                   <ExternalLink size={14} className="text-slate-400" />
                 </a>
-                <div className="text-xs text-slate-400 font-mono">
+                <div className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                   640+ Contributions in the last year
                 </div>
               </div>
@@ -132,23 +147,23 @@ export default function GitHubActivity({ theme = "ai", colorPalette = "cyber-blu
 
             {/* Quick Stat Counters */}
             <div className="grid grid-cols-3 gap-4 font-mono text-xs">
-              <div className="bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-800">
-                <div className="text-slate-400 text-[10px] uppercase flex items-center gap-1">
-                  <GitCommit size={12} className="text-cyan-400" /> Total Commits
+              <div className="bg-slate-50 dark:bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800">
+                <div className="text-slate-500 dark:text-slate-400 text-[10px] uppercase flex items-center gap-1">
+                  <GitCommit size={12} className="text-indigo-600 dark:text-cyan-400" /> Total Commits
                 </div>
-                <div className="text-cyan-300 font-extrabold text-base">642</div>
+                <div className="text-indigo-600 dark:text-cyan-300 font-extrabold text-base">642</div>
               </div>
-              <div className="bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-800">
-                <div className="text-slate-400 text-[10px] uppercase flex items-center gap-1">
-                  <Flame size={12} className="text-orange-400" /> Current Streak
+              <div className="bg-slate-50 dark:bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800">
+                <div className="text-slate-500 dark:text-slate-400 text-[10px] uppercase flex items-center gap-1">
+                  <Flame size={12} className="text-orange-500 dark:text-orange-400" /> Current Streak
                 </div>
-                <div className="text-orange-400 font-extrabold text-base">14 Days</div>
+                <div className="text-orange-600 dark:text-orange-400 font-extrabold text-base">14 Days</div>
               </div>
-              <div className="bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-800">
-                <div className="text-slate-400 text-[10px] uppercase flex items-center gap-1">
-                  <GitPullRequest size={12} className="text-purple-400" /> Pull Requests
+              <div className="bg-slate-50 dark:bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800">
+                <div className="text-slate-500 dark:text-slate-400 text-[10px] uppercase flex items-center gap-1">
+                  <GitPullRequest size={12} className="text-purple-600 dark:text-purple-400" /> Pull Requests
                 </div>
-                <div className="text-purple-300 font-extrabold text-base">48 PRs</div>
+                <div className="text-purple-600 dark:text-purple-300 font-extrabold text-base">48 PRs</div>
               </div>
             </div>
           </div>

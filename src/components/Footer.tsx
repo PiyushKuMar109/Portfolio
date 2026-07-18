@@ -94,7 +94,7 @@ export default function Footer() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={scrollToTop}
-            className="fixed bottom-6 right-6 p-3 bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white rounded-full shadow-lg shadow-indigo-500/20 hover:brightness-110 hover:-translate-y-1 transition-all z-40 cursor-pointer"
+            className="fixed bottom-24 right-6 p-3 bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white rounded-full shadow-lg shadow-indigo-500/20 hover:brightness-110 hover:-translate-y-1 transition-all z-40 cursor-pointer"
             aria-label="Back to top"
           >
             <ArrowUp size={16} />

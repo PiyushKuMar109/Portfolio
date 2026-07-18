@@ -177,19 +177,19 @@ export default function Hero({ theme = "ai", setTheme, colorPalette }: HeroProps
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="grid grid-cols-3 gap-3 p-3 rounded-2xl bg-slate-900/80 border border-cyan-500/30 shadow-[0_0_15px_rgba(0,243,255,0.1)] font-mono text-xs max-w-xl"
+            className="grid grid-cols-3 gap-3 p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-cyan-500/30 shadow-md font-mono text-xs max-w-xl"
           >
             <div className="text-center">
-              <div className="text-[10px] text-slate-400 uppercase">YOLOv8 mAP</div>
-              <div className="text-cyan-300 font-extrabold text-sm sm:text-base">87.4%</div>
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase">YOLOv8 mAP</div>
+              <div className="text-indigo-600 dark:text-cyan-300 font-extrabold text-sm sm:text-base">87.4%</div>
             </div>
-            <div className="text-center border-x border-slate-800">
-              <div className="text-[10px] text-slate-400 uppercase">Vision Speed</div>
-              <div className="text-purple-300 font-extrabold text-sm sm:text-base">60 FPS</div>
+            <div className="text-center border-x border-slate-200 dark:border-slate-800">
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase">Vision Speed</div>
+              <div className="text-purple-600 dark:text-purple-300 font-extrabold text-sm sm:text-base">60 FPS</div>
             </div>
             <div className="text-center">
-              <div className="text-[10px] text-slate-400 uppercase">ML Parameters</div>
-              <div className="text-emerald-400 font-extrabold text-sm sm:text-base">25M+</div>
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase">ML Parameters</div>
+              <div className="text-emerald-600 dark:text-emerald-400 font-extrabold text-sm sm:text-base">25M+</div>
             </div>
           </motion.div>
 
