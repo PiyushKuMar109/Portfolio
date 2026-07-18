@@ -80,7 +80,7 @@ export default function Home() {
   const isDarkMode = theme === "dark" || theme === "ai";
 
   return (
-    <div className={`relative min-h-screen flex flex-col transition-colors duration-500 palette-${colorPalette} ${theme === "ai" ? "ai-theme" : ""}`}>
+    <div className={`relative min-h-screen flex flex-col transition-colors duration-500 palette-${colorPalette} ${theme === "ai" ? "ai-theme" : ""} overflow-x-hidden w-full max-w-full`}>
       {/* Visual background decorations */}
       <ParticleBackground theme={theme} />
       <AnimatedCursor />
@@ -96,7 +96,7 @@ export default function Home() {
       />
 
       {/* Main Sections */}
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden w-full max-w-full">
         <Hero theme={theme} setTheme={setTheme} colorPalette={colorPalette} />
         <About />
         <Skills />

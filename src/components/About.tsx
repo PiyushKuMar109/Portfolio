@@ -13,7 +13,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 relative px-6 bg-slate-100/50 dark:bg-slate-900/40">
+    <section id="about" className="py-24 relative px-6 bg-slate-100/50 dark:bg-slate-900/40 overflow-hidden">
       {/* Glow Backdrop */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 

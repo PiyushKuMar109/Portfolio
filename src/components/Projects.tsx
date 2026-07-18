@@ -153,7 +153,7 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="py-24 relative px-6 bg-slate-100/50 dark:bg-slate-900/50">
+    <section id="projects" className="py-24 relative px-6 bg-slate-100/50 dark:bg-slate-900/50 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-10 left-10 w-[300px] h-[300px] bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-[80px] pointer-events-none -z-10" />
 

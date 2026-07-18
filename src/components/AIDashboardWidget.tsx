@@ -106,7 +106,7 @@ export default function AIDashboardWidget({ theme = "ai", setTheme }: AIDashboar
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.25 }}
-            className={`absolute bottom-16 right-0 w-[90vw] max-w-[420px] rounded-3xl shadow-2xl overflow-hidden border backdrop-blur-2xl flex flex-col z-50 ${
+            className={`fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-[420px] max-w-[420px] rounded-3xl shadow-2xl overflow-hidden border backdrop-blur-2xl flex flex-col z-50 ${
               theme === "ai"
                 ? "bg-slate-950/95 border-cyan-500/40 shadow-[0_0_40px_rgba(0,243,255,0.3)] text-slate-100"
                 : "bg-white/95 dark:bg-slate-950/95 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100"

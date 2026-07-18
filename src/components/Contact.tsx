@@ -53,7 +53,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative px-6 bg-slate-50/50 dark:bg-slate-950/20">
+    <section id="contact" className="py-24 relative px-6 bg-slate-50/50 dark:bg-slate-950/20 overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
 

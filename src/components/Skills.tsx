@@ -87,7 +87,7 @@ export default function Skills() {
       : filteredSkills;
 
   return (
-    <section id="skills" className="py-24 relative px-6 bg-slate-50/50 dark:bg-slate-950/20">
+    <section id="skills" className="py-24 relative px-6 bg-slate-50/50 dark:bg-slate-950/20 overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-indigo-500/5 dark:bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 

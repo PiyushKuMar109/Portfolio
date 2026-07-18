@@ -30,7 +30,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12 px-6">
+    <footer className="relative bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left branding */}
         <div className="flex items-center space-x-2 font-montserrat font-bold text-lg text-slate-900 dark:text-white">

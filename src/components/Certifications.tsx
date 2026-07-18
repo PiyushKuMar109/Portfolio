@@ -94,7 +94,7 @@ export default function Certifications() {
   ];
 
   return (
-    <section id="certifications" className="py-24 relative px-6 bg-slate-100/50 dark:bg-slate-900/40">
+    <section id="certifications" className="py-24 relative px-6 bg-slate-100/50 dark:bg-slate-900/40 overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/3 right-1/4 w-[350px] h-[350px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
 
